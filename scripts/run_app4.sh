@@ -20,18 +20,18 @@ ADDPROJS=( p66 )
 MODE=custom
 APP_DIR=/g/data/tm70/kr4383/APP4
 HISTORY_DATA=$DATA_LOC/$EXP_TO_PROCESS/history
-source /g/data/tm70/kr4383/APP4/subroutines/setup_env.sh
+source $APP_DIR/subroutines/setup_env.sh
 # Cleanup output_files
-/g/data/tm70/kr4383/APP4/subroutines/cleanup.sh $OUT_DIR
+$APP_DIR/subroutines/cleanup.sh $OUT_DIR
 
 # Create json file which contains metadata info
-python /g/data/tm70/kr4383/APP4/subroutines/custom_json_editor.py
+python $APP_DIR/subroutines/custom_json_editor.py
 
 # Create variable maps
-python /g/data/tm70/kr4383/APP4/subroutines/dreq_mapping.py --multi
+python $APP_DIR/subroutines/dreq_mapping.py --multi
 
 # Create database
-python /g/data/tm70/kr4383/APP4/subroutines/database_manager.py
+python $APP_DIR/subroutines/database_manager.py
 
 
 ################################################################
@@ -81,9 +81,9 @@ MODE=$MODE
 CONTACT=$CONTACT
 CDAT_ANONYMOUS_LOG=no
 APP_DIR=/g/data/tm70/kr4383/APP4
-source /g/data/tm70/kr4383/APP4/subroutines/setup_env.sh
+source $APP_DIR/subroutines/setup_env.sh
 # main
-python /g/data/tm70/kr4383/APP4/subroutines/app_wrapper.py
+python $APP_DIR/subroutines/app_wrapper.py
 # post
 python ${OUT_DIR}/database_updater.py
 sort ${SUCCESS_LISTS}/${EXP_TO_PROCESS}_success.csv \

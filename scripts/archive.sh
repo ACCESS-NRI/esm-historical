@@ -27,7 +27,7 @@ ncexists=false
 arch_grp=$PROJECT
 UMDIR=~access/umdir
 
-# # setup dircetories
+# setup dircetories
 rm -rf $here/tmp/$loc_exp
 mkdir -p $here/tmp/$loc_exp
 mkdir -p $arch_dir/$loc_exp/{history/atm/netCDF,restart/atm}

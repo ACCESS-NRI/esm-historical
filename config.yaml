@@ -1,6 +1,6 @@
 jobname: historical
 queue: normal
-walltime: 1:40:00
+walltime: 4:00:00
 
 # note: if laboratory is relative path, it is relative to /scratch/$PROJECT/$USER
 laboratory: access-esm
@@ -51,7 +51,7 @@ calendar:
         days: 1
 
     runtime:
-        years: 1 # NOTE: Must be 1 year for land use changes
+        years: 2 # NOTE: Must be 1 year for land use changes
         months: 0
         days: 0
 

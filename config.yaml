@@ -51,8 +51,8 @@ calendar:
         days: 1
 
     runtime:
-        years: 2 # NOTE: Must be 1 year for land use changes
-        months: 0
+        years: 0 # NOTE: Must be 1 year for land use changes
+        months: 1
         days: 0
 
 # Increase to run multiple years in a single submission

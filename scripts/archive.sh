@@ -84,4 +84,4 @@ SUBDAILY=false                               # subdaily selection options - sele
 VAR_SUBSET=false                             # use a sub-set list of variables to process, as defined by 'VAR_SUBSET_LIST'
 VAR_SUBSET_LIST=input_files/var_subset_lists/var_subset_ACS.csv
 
-./scripts/run_app4.sh
+# ./scripts/run_app4.sh

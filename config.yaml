@@ -13,7 +13,7 @@ storage:
 submodels:
     - name: atmosphere
       model: um
-      ncpus: 384
+      ncpus: 480
       exe: /g/data/access/payu/access-esm/bin/coe/um7.3x
       input:
         - /g/data/access/payu/access-esm/input/historical.corrected/atmosphere

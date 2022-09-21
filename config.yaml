@@ -29,7 +29,7 @@ submodels:
 
     - name: ice
       model: cice
-      ncpus: 24
+      ncpus: 12
       exe: /g/data/access/payu/access-esm/bin/coe/cicexx
       input:
         - /g/data/access/payu/access-esm/input/pre-industrial/ice

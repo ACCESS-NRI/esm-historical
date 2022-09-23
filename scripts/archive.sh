@@ -28,16 +28,16 @@ arch_grp=$PROJECT
 UMDIR=~access/umdir
 
 # # setup dircetories
-# rm -rf $here/tmp/$loc_exp
-# mkdir -p $here/tmp/$loc_exp
-# mkdir -p $arch_dir/$loc_exp/{history/atm/netCDF,restart/atm}
+rm -rf $here/tmp/$loc_exp
+mkdir -p $here/tmp/$loc_exp
+mkdir -p $arch_dir/$loc_exp/{history/atm/netCDF,restart/atm}
 
-# # run access archiving scripts
-# ${here}/subroutines/find_files_payu.sh # create file list
-# python -s -W ignore $here/subroutines/run_um2nc.py # convert UM files to netcdf
-# $here/subroutines/cp_hist_payu.sh # copy over history
-# $here/subroutines/cp_rest_payu.sh # copy over output files
-# $here/subroutines/mppnccomb_check.sh # combine ocean output files
+# run access archiving scripts
+${here}/subroutines/find_files_payu.sh # create file list
+python -s -W ignore $here/subroutines/run_um2nc.py # convert UM files to netcdf
+$here/subroutines/cp_hist_payu.sh # copy over history
+$here/subroutines/cp_rest_payu.sh # copy over output files
+$here/subroutines/mppnccomb_check.sh # combine ocean output files
 
 #
 ########################################
@@ -53,13 +53,17 @@ CONTACT=access_csiro@csiro.au                # please insert your contact email
 EXP_DESCRIPTION="Pacemaker, Topical Atlantic, HadISST obs. see: https://confluence.csiro.au/display/ACCESS/ACCESS+Model+Output+Archive+%28p73%29+Wiki"
 
 # fragile way to set start and end years
+
+# find last created output folder - highest suffix number
 tmp=(archive/output*)
 output_folders=($(for l in ${tmp[@]}; do echo $l; done | sort))
 output_folder=${output_folders[-1]}
 
+# find the list of ice files for the most recent run
 tmp=(${output_folder}/ice/HISTORY/*)
 ice_files=($(for l in ${tmp[@]}; do echo $l; done | sort))
 
+# sort the files and extract the first and last year
 START_YEAR=$(echo ${ice_files[0]} | cut -d "." -f 2 | cut -d "-" -f 1)
 END_YEAR=$(echo ${ice_files[-1]} | cut -d "." -f 2 | cut -d "-" -f 1)
 
